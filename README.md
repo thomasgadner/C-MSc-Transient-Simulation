@@ -10,7 +10,7 @@
 | ECTS          | 3                                                 |
 | Type          | ILV                                               |
 
-
+---
 
 > [!TIP]
 > Brush up on your coding skills before you start the course.
@@ -28,6 +28,11 @@
 |7|4| LAB - Hardware in the Loop|
 |8|4| tbd.|
 
+> [!IMPORTANT]
+> The exact schedule may change at any time during the semester. 
+
+
+
 
 ## Reading List
 
@@ -35,7 +40,4 @@
 |----|----|----|
 | Computer-Aided Analysis of Electronic Circuits: Algorithms and Computational Techniques |  Leon O. Chua  |  Prentice Hall |
 
-
-> [!IMPORTANT]
-> The exact schedule may change at any time during the semester. 
 
