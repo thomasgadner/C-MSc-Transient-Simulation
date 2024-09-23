@@ -1,7 +1,5 @@
-# Transient Simulation MECH-M-3-SVE-TSI-ILV 
-
-
 ## General Information
+
 | DESCRIPTION   | VALUE                                             |
 |---------------|---------------------------------------------------|
 | Module Name   | MECH-M-3-SVE-TSI-ILV                              |
@@ -12,6 +10,10 @@
 | ECTS          | 3                                                 |
 | Type          | ILV                                               |
 
+
+
+> [!TIP]
+> Brush up on your coding skills before you start the course.
 
 ## Structure
 
@@ -35,5 +37,5 @@
 
 
 > [!IMPORTANT]
-> Crucial information necessary for users to succeed.
+> The exact schedule may change at any time during the semester. 
 
