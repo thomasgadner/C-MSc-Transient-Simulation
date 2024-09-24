@@ -1,4 +1,4 @@
-## General Information
+# General Information
 
 | DESCRIPTION   | VALUE                                             |
 |---------------|---------------------------------------------------|
@@ -30,8 +30,6 @@
 
 > [!IMPORTANT]
 > The exact schedule may change at any time during the semester. 
-
-
 
 
 ## Reading List
