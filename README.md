@@ -26,7 +26,7 @@
 | 5       | 4   | Circuit Simulation Example **Assessment two (2)**                                                                           |
 | 6       | 4   | Hardware in the Loop and Rapid Prototyping Concepts                                                                         |
 | 7       | 4   | LAB - Hardware in the Loop **Assessment three (3)**                                                                         |
-| 8       | 4   | LAB - Hardware in the Loop                                                                                                  |
+| 8       | 4   | JOKER                                                                                                                       |
 
 > [!IMPORTANT]
 > The exact schedule may change at any time during the semester.
