@@ -1,14 +1,13 @@
 import numpy as np
-import pwm
+import timer_module
 import matplotlib.pyplot as plt
-import solver_4th as solver
-
+import runge_kutta as solver
 
 
 
 def switch_manager(step, pwm_carrier, D, B_SW, B_DC):
     # Check if the PWM signal is 1.0
-    if pwm.pwm(step, pwm_carrier , D) == 1.0:
+    if timer_module.pwm(step, pwm_carrier , D) == 1.0:
         B = B_SW #If the PWM signal is 1.0, use the input vector B_SW
     else:
         B = B_DC #If the PWM signal is 0.0, use the input vector B_DC
@@ -51,17 +50,13 @@ if __name__=="__main__":
 
     # Define the PWM and carrier signal
     t = np.arange(0,t_end,dt)  # time vector for carrier and pwm
-    pwm_carrier = pwm.carrier(t,pwm_freq,centeraligned=True) # Center-aligned carrier signal
+    pwm_carrier = timer_module.carrier(t,pwm_freq,centeraligned=True) # Center-aligned carrier signal
 
     # Define the initial state vector with the initial condition
     sim_states = [initial_state]
 
     # Start the simulation
     for step in range(0, len(t)-1):
-
-        # Here acontinuous control input for the Duyty cycle can be implemented
-
-        peak_current_coroller()
 
         # Call the switch manager function
         B = switch_manager(step, pwm_carrier, D, B_SW, B_DC)
@@ -70,7 +65,6 @@ if __name__=="__main__":
         sim_states.append(solver.runge_kutta_4th_order_extern(A, B, sim_states, Vin, dt))
         # Append the new state vector to the states list
         
-
 
     # Extract x1 and x2 values for the phase plot
     i_L = [state[0] for state in sim_states]
@@ -87,15 +81,3 @@ if __name__=="__main__":
     plt.show()
 
 
-
-
-
-
-    percent=30.0
-TimePeriod=1.0
-Cycles=10
-dt=0.01 
-
-t=np.arange(0,Cycles*TimePeriod,dt); 
-pwm= t%TimePeriod<TimePeriod*percent/100 
-plot(t,pwm)

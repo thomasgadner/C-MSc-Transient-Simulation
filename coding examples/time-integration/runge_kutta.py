@@ -21,9 +21,6 @@ def runge_kutta_4th_order_extern(A, B, states, input, dt):
     return x + (dt / 6) * (k1 + 2 * k2 + 2 * k3 + k4)
     
     
-
-
-
 # Runge-Kutta 4th order method simulation
 def runge_kutta_4th_order(A, B, initial_state, control_input, T, dt):
     num_steps = int(T / dt)
@@ -45,12 +42,9 @@ def runge_kutta_4th_order(A, B, initial_state, control_input, T, dt):
 
     return states
 
-
-
 # Define a control input function (e.g., a constant control input)
 def constant_control_input(t):
     return 0.0  # Replace with your control input profile
-
 
 if __name__=="__main__":
 

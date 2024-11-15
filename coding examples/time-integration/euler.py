@@ -10,10 +10,7 @@ def system_dynamics(x, u):
 
     Ax = np.dot(A, x)
     Bx = B * u
-
-    intermed = Ax + Bx
-
-    return intermed
+    return  Ax + Bx
 
 # Euler method simulation
 def euler_method(initial_state, control_input, T, dt):
@@ -44,6 +41,7 @@ def constant_control_input(t):
 
 # Simulate the system
 simulated_states = euler_method(initial_state, constant_control_input, T, dt)
+
 
 # Extract x1 and x2 values for the phase plot
 i_L = [state[0] for state in simulated_states]

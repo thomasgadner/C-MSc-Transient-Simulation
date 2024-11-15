@@ -26,7 +26,7 @@ def plot_pwm(t,vek,pwm_sig):
 
 
 if __name__=="__main__":
-    t = np.arange(0,10,0.000005)  # time vector
+    t = np.arange(0,0.2,0.000005)  # time vector
     vek = carrier(t,100,centeraligned=True) # carrier signal
     pwm_sig = np.zeros(len(t)) # pwm signal
 
