@@ -1,0 +1,612 @@
+Plecs {
+  Name          "01_basic_model_analysis"
+  Version       "4.8"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  TimeSpan      "1.0"
+  Timeout       ""
+  Solver        "auto"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  NonIdealSwitchResistance "1"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  DatatypeOverflowMsg "3"
+  DatatypeInheritanceConflictMsg "2"
+  ContSampleTimeConflictMsg "2"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  FixedPointDatatypeOverride "1"
+  InitializationCommands "C = 22e-6\nL = 470e-6\nR_Load = 5\n"
+  InitialState  "1"
+  SystemState   ""
+  TaskingMode   "1"
+  TaskConfigurations ""
+  CodeGenParameterInlining "2"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "STM32G4x"
+  CodeGenTargetSettings "AAAAfwAAAAAlUU1hcDxRU3RyaW5nLFFNYXA8UVN0cmluZyxRU3Rya"
+"W5nPiA+AAAAAAEAAAAQAFMAVABNADMAMgBHADQAeAAAAFYAAAASAFUAcwBlAEkAbgB0AE8AcwBjAA"
+"AAAgAxAAAANABVAFMARQBfAFMAVABBAFIAVABfAFQASQBNAEUAXwBJAE4AXwBJAE4ASQBUAF8ARgB"
+"DAE4AAAACADAAAABKAFUAUwBFAF8ARABBAFQAQQBfAFQAWQBQAEUAUwBfAEYATwBSAF8AVABVAE4A"
+"QQBCAEwARQBfAFAAQQBSAEEATQBFAFQARQBSAFMAAAACADEAAAAUAFQAaAByAGUAcwBoAG8AbABkA"
+"DcAAAAGADAALgAwAAAAFABUAGgAcgBlAHMAaABvAGwAZAA2AAAABgAwAC4AMAAAABQAVABoAHIAZQ"
+"BzAGgAbwBsAGQANQAAAAYAMAAuADAAAAAUAFQAaAByAGUAcwBoAG8AbABkADQAAAAGADAALgAwAAA"
+"AFABUAGgAcgBlAHMAaABvAGwAZAAzAAAABgAwAC4AMAAAABQAVABoAHIAZQBzAGgAbwBsAGQAMgAA"
+"AAYAMAAuADAAAAAUAFQAaAByAGUAcwBoAG8AbABkADEAAAAGADAALgAwAAAAGgBUAGEAcwBrAFMAY"
+"wBoAGUAZAB1AGwAZQByAAAAAgAyAAAAFgBUAGEAcwBrAEYAcgBlAHEAVABvAGwAAAACADEAAAAUAF"
+"QAYQByAGcAZQB0AE4AYQBtAGUAAAAQAFMAVABNADMAMgBHADQAeAAAABoAVABBAFIARwBFAFQAXwB"
+"EAEUAVgBJAEMARf////8AAAASAFMAeQBzAEMAbABrAE0ASAB6AAAABgAxADcAMAAAACYAUwBwAGUA"
+"YwBpAGYAeQBTAGUAcgBpAGEAbABOAHUAbQBiAGUAcgAAAAIAMAAAACQAUwBlAHIAaQBhAGwATgB1A"
+"G0AYgBlAHIAUwB0AHIAaQBuAGcAAAAAAAAAGABTAGUAcgBpAGEAbABOAHUAbQBiAGUAcgAAAAAAAA"
+"AUAFMAZQBuAHMAZQBQAG8AcgB0ADcAAAACADEAAAAUAFMAZQBuAHMAZQBQAG8AcgB0ADYAAAACADE"
+"AAAAUAFMAZQBuAHMAZQBQAG8AcgB0ADUAAAACADEAAAAUAFMAZQBuAHMAZQBQAG8AcgB0ADQAAAAC"
+"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"
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  RemoveUnusedStateSpaceOutputs "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings "AAAAfwAAAAAWUU1hcDxRU3RyaW5nLFFTdHJpbmc+AAAAAAYAAAAYAF"
+"QAcgBpAGcAZwBlAHIAVgBhAGwAdQBlAAAAAgAwAAAAGABUAHIAaQBnAGcAZQByAEQAZQBsAGEAeQA"
+"AAAIAMAAAABYAUwBlAG4AcwBpAHQAaQB2AGkAdAB5AAAAAgAwAAAAFgBSAGUAZgByAGUAcwBoAFIA"
+"YQB0AGUAAAAEADIAMAAAABQATgB1AG0AUwBhAG0AcABsAGUAcwAAAAgAOAAxADkAMgAAABQARABlA"
+"GMAaQBtAGEAdABpAG8AbgAAAAIAMQ=="
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
+  Schematic {
+    Location      [0, 23; 1280, 642]
+    ZoomFactor    1
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          VoltageSource
+      Name          "V"
+      Show          on
+      Position      [480, 340]
+      Direction     down
+      Flipped       on
+      LabelPosition east
+      Parameter {
+        Variable      "DiscretizationBehavior"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "StateSpaceInlining"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          MosfetWithDiode
+      Name          "FETD"
+      Show          on
+      Position      [640, 305]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "s_init"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "Rth"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          Diode
+      Name          "D1"
+      Show          on
+      Position      [640, 425]
+      Direction     down
+      Flipped       off
+      LabelPosition east
+      Parameter {
+        Variable      "Vf"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "Rth"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "SwitchModel"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "f_grid"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inductor
+      Name          "L1"
+      Show          on
+      Position      [740, 340]
+      Direction     left
+      Flipped       off
+      LabelPosition north
+      Parameter {
+        Variable      "L"
+        Value         "L"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Capacitor
+      Name          "C1"
+      Show          on
+      Position      [800, 470]
+      Direction     down
+      Flipped       on
+      LabelPosition west
+      Parameter {
+        Variable      "C"
+        Value         "C"
+        Show          on
+      }
+      Parameter {
+        Variable      "v_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R2"
+      Show          on
+      Position      [920, 430]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+      Parameter {
+        Variable      "R"
+        Value         "R_Load"
+        Show          on
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Constant"
+      Show          on
+      Position      [415, 340]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -10; 15, 10]
+      Parameter {
+        Variable      "Value"
+        Value         "12"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Voltmeter
+      Name          "Vm1"
+      Show          on
+      Position      [1000, 430]
+      Direction     up
+      Flipped       off
+      LabelPosition west
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [1095, 430]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Location      [427, 180; 777, 433]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADiAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAJYAAAAIAAAAlgAAAAEAAACWAAAAAwAAAJYAAAACAAAAlgAAAAUAAACWAAAABAAAAJYAAAAHAA"
+"AAlgAAAAYAAACWAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAkAAAAAQAAAAAAAAPoAAAAACQ="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Reference
+      SrcComponent  "Components/Control/Modulators/Symmetrical PWM"
+      Name          "q(t)"
+      Show          on
+      Position      [260, 305]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-20, -20; 20, 20]
+      Parameter {
+        Variable      "sampling"
+        Value         "5"
+        Show          off
+      }
+      Parameter {
+        Variable      "fc"
+        Value         "100e3"
+        Show          off
+      }
+      Parameter {
+        Variable      "carrier_phaseshift"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "carrier_limits"
+        Value         "[0 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "output_values"
+        Value         "[0 1]"
+        Show          off
+      }
+      Terminal {
+        Type          Output
+        Position      [24, 0]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-20, 0]
+        Direction     left
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "d"
+      Show          on
+      Position      [125, 305]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-25, -10; 25, 10]
+      Parameter {
+        Variable      "Value"
+        Value         "0.2"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          SmallSignalResponse
+      Name          "o'"
+      Show          on
+      Position      [1095, 480]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "ShowReference"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "InvertReference"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SmallSignalPerturbation
+      Name          "m'"
+      Show          on
+      Position      [200, 305]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "ShowInput"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Resistor
+      Name          "R1"
+      Show          on
+      Position      [800, 400]
+      Direction     up
+      Flipped       off
+      LabelPosition east
+      Parameter {
+        Variable      "R"
+        Value         "530e-3"
+        Show          on
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "FETD"
+      SrcTerminal   1
+      Points        [640, 240; 480, 240]
+      DstComponent  "V"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "D1"
+      SrcTerminal   2
+      Points        [640, 340]
+      Branch {
+        DstComponent  "FETD"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "L1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "D1"
+      SrcTerminal   1
+      Points        [640, 520]
+      Branch {
+        Points        [480, 520]
+        DstComponent  "V"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [800, 520]
+        Branch {
+          DstComponent  "C1"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [920, 520]
+          Branch {
+            DstComponent  "R2"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [1000, 520]
+            DstComponent  "Vm1"
+            DstTerminal   2
+          }
+        }
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L1"
+      SrcTerminal   2
+      Points        [800, 340]
+      Branch {
+        DstComponent  "R1"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [920, 340]
+        Branch {
+          DstComponent  "R2"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [1000, 340]
+          DstComponent  "Vm1"
+          DstTerminal   1
+        }
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Constant"
+      SrcTerminal   1
+      DstComponent  "V"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm1"
+      SrcTerminal   3
+      Points        [1030, 430]
+      Branch {
+        DstComponent  "Scope"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [1030, 480]
+        DstComponent  "o'"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "d"
+      SrcTerminal   1
+      DstComponent  "m'"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "m'"
+      SrcTerminal   1
+      DstComponent  "q(t)"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "q(t)"
+      SrcTerminal   1
+      DstComponent  "FETD"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R1"
+      SrcTerminal   2
+      DstComponent  "C1"
+      DstTerminal   1
+    }
+  }
+  Analysis {
+    Type          ImpulseResponseAnalysis
+    Name          "Impulse Response Analysis"
+    ShowLegend    "1"
+    TimeSpan      "-1"
+    StartTime     "0"
+    Tolerance     "1e-4"
+    MaxIter       "20"
+    FrequencyRange "[100 50e3]"
+    FrequencyScale "2"
+    Amplitude     "1e-3"
+    NumPoints     "300"
+    Perturbation  "m'"
+    Response      "o'"
+    JacobianPerturbation "1e-4"
+    JacobianCalculation "2"
+    InitCycles    "0"
+    MaxNumberOfThreads "-1"
+  }
+}
