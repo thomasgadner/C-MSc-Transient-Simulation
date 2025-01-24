@@ -33,7 +33,7 @@ def euler_method(initial_state, control_input, T, dt):
 # Define the initial state, control input, simulation time, and time step
 initial_state = np.array([1, 1])  # Initial state [x1(0), x2(0)]
 T = 10.0  # Total simulation time
-dt = 0.001  # Time step
+dt = 0.1  # Time step
 
 # Define a control input function (e.g., a constant control input)
 def constant_control_input(t):

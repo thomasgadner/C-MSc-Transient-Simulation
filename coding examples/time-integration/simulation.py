@@ -23,7 +23,7 @@ if __name__=="__main__":
     # Define the simulation time and step size
     t_end = T = 100*(1/pwm_freq);  
     # Select the discrete time step size
-    dt = 1e-6  # Time step size (seconds)
+    dt = 1e-5  # Time step size (seconds)
 
 
     ## Initialize the state-space matrices and other variables
